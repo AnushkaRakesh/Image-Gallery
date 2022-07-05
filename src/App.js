@@ -46,29 +46,33 @@ function App() {
   };
 
   return (
-    
-    <div className="wrapper">
-      {data.data.map((item, index) => (
-        <div key={index} className="wrapper-images">
-          <img
-            src={item.link}
-            alt={item.text}
-            onClick={() => handleClick(item, index)}
-          />
-          <h2>{item.text}</h2>
-        </div>
-      ))}
+    <>
       <div>
-        {clickedImg && (
-          <Modal
-            clickedImg={clickedImg}
-            handelRotationRight={handelRotationRight}
-            setClickedImg={setClickedImg}
-            handelRotationLeft={handelRotationLeft}
-          />
-        )}
+        <h3 style={{textAlign:'center', }}>Photographer's Showcase</h3>
       </div>
-    </div>
+      <div className="wrapper">
+        {data.data.map((item, index) => (
+          <div key={index} className="wrapper-images">
+            <img
+              src={item.link}
+              alt={item.text}
+              onClick={() => handleClick(item, index)}
+            />
+            <h2>{item.text}</h2>
+          </div>
+        ))}
+        <div>
+          {clickedImg && (
+            <Modal
+              clickedImg={clickedImg}
+              handelRotationRight={handelRotationRight}
+              setClickedImg={setClickedImg}
+              handelRotationLeft={handelRotationLeft}
+            />
+          )}
+        </div>
+      </div>
+    </>
   );
 }
 
